@@ -1,31 +1,154 @@
+const quizQuestions = {
+    vocabulary: [
+        {
+            question: "What is the meaning of Beautiful?",
+            options: ["زیبا", "بزرگ", "کوچک", "سریع"],
+            answer: "زیبا"
+        },
+        {
+            question: "What is the meaning of Brave?",
+            options: ["ترسو", "شجاع", "خسته", "خوشحال"],
+            answer: "شجاع"
+        }
+    ],
 
-function nextQuestion() {
-    if (!currentTopic) {
+    grammar: [
+        {
+            question: "She ___ a student.",
+            options: ["am", "is", "are", "be"],
+            answer: "is"
+        },
+        {
+            question: "They ___ playing football.",
+            options: ["is", "am", "are", "be"],
+            answer: "are"
+        }
+    ]
+};
+
+quizQuestions.mixed = [
+    ...quizQuestions.vocabulary,
+    ...quizQuestions.grammar
+];
+
+let currentQuiz = [];
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+function startQuiz(type) {
+    currentQuiz = quizQuestions[type];
+    currentQuestion = 0;
+    score = 0;
+
+    document.getElementById("quizBox").classList.remove("hidden");
+
+    showQuestion();
+}
+
+function showQuestion() {
+    const question = currentQuiz[currentQuestion];
+
+    answered = false;
+
+    document.getElementById("question").textContent =
+        question.question;
+
+    document.getElementById("feedback").textContent = "";
+
+    document.getElementById("nextBtn").classList.add("hidden");
+
+    const optionsBox = document.getElementById("options");
+    optionsBox.innerHTML = "";
+
+    question.options.forEach(option => {
+        const button = document.createElement("button");
+
+        button.textContent = option;
+        button.className =
+            "bg-[#252044] p-3 rounded-lg hover:bg-purple-700 text-left";
+
+        button.onclick = () => checkAnswer(option);
+
+        optionsBox.appendChild(button);
+    });
+}
+function checkAnswer(selected) {
+    if (answered) return;
+
+    answered = true;
+
+    const correct = currentQuiz[currentQuestion].answer;
+
+    if (selected === correct) {
+        score++;
         document.getElementById("feedback").textContent =
-            "Please choose a topic first.";
-        return;
+            "✅ Correct! Great job!";
+    } else {
+        document.getElementById("feedback").textContent =
+            "❌ Incorrect! Correct answer: " + correct;
     }
 
-    const answer = document.getElementById("answer").value.trim();
+    document.getElementById("nextBtn").classList.remove("hidden");
+}
 
-    if (answer === "") {
-        document.getElementById("feedback").textContent =
-            "Please write your answer before continuing.";
-        return;
-    }
+function saveQuizResult() {
+   let stats = JSON.parse(localStorage.getItem("quizStats")) || {
+        completed: 0,
+        totalScore: 0,
+        correctAnswers: 0,
+        totalQuestions: 0
+    };
 
-    const questions = speakingQuestions[currentTopic];
+    stats.completed++;
+    stats.totalScore += score;
+    stats.correctAnswers += score;
+    stats.totalQuestions += currentQuiz.length;
 
-    if (currentQuestionIndex < questions.length - 1) {
-        currentQuestionIndex++;
+    localStorage.setItem("quizStats", JSON.stringify(stats));
+
+    updateDashboard();
+}
+
+function updateDashboard() {
+    let stats = JSON.parse(localStorage.getItem("quizStats")) || {
+        completed: 0,
+        totalScore: 0,
+        correctAnswers: 0,
+        totalQuestions: 0
+    };
+
+    document.getElementById("totalScore").textContent =
+        stats.totalScore;
+
+    document.getElementById("quizzesCompleted").textContent =
+        stats.completed;
+
+    let accuracy = stats.totalQuestions > 0
+        ? Math.round((stats.correctAnswers / stats.totalQuestions) * 100)
+        : 0;
+
+    document.getElementById("accuracyRate").textContent =
+        accuracy + "%";
+}
+
+updateDashboard();
+document.getElementById("nextBtn").onclick = function () {
+    currentQuestion++;
+
+    if (currentQuestion < currentQuiz.length) {
         showQuestion();
     } else {
-        document.getElementById("question").textContent =
-            "🎉 You have completed this practice!";
+        saveQuizResult();
 
-        document.getElementById("answer").value = "";
+        document.getElementById("question").textContent =
+            "🎉 Quiz Completed!";
+
+        document.getElementById("options").innerHTML = "";
 
         document.getElementById("feedback").textContent =
-            "Great job! Keep practising to improve your English.";
+            "Your score: " + score + " / " + currentQuiz.length;
+
+        this.classList.add("hidden");
     }
-}
+};
