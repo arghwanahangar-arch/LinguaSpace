@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culture | LinguaSpace</title>
+    <link href="../css/output.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #10172A;
+            color: #F8FAFC;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #7C5CFC, #38BDF8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass {
+            background: rgba(30, 41, 59, 0.78);
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(14px);
+        }
+
+        .country-card {
+            transition: transform .3s ease, border-color .3s ease;
+        }
+
+        .country-card:hover {
+            transform: translateY(-6px);
+            border-color: #7C5CFC;
+        }
+
+        .country-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .5s ease;
+        }
+
+        .country-card:hover .country-image {
+            transform: scale(1.06);
+        }
+
+        .detail-panel {
+            display: none;
+        }
+
+        .detail-panel.open {
+            display: block;
+        }
+
+        .search-input:focus {
+            border-color: #7C5CFC;
+            box-shadow: 0 0 0 3px rgba(124,92,252,.15);
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="border-b border-white/10">
+    <nav class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+        <a href="../index.html" class="text-2xl font-extrabold gradient-text">
+            LinguaSpace.
+        </a>
+
+        <div class="hidden md:flex items-center gap-7 text-sm text-slate-300">
+            <a href="../index.html" class="hover:text-white">Home</a>
+            <a href="./vocabulary.html" class="hover:text-white">Vocabulary</a>
+            <a href="./speaking.html" class="hover:text-white">Speaking</a>
+            <a href="./culture.html" class="text-sky-400">Culture</a>
+            <a href="./inspiration.html" class="hover:text-white">Inspiration</a>
+        </div>
+
+        <a href="../index.html"
+           class="bg-purple-600 hover:bg-purple-500 px-5 py-2.5 rounded-full text-sm font-semibold transition">
+            Explore
+        </a>
+    </nav>
+</header>
+
+<main class="max-w-7xl mx-auto px-6">
+
+    <!-- HERO -->
+    <section class="text-center pt-20 pb-16">
+        <span class="inline-block px-4 py-2 rounded-full glass text-sky-300 text-sm mb-6">
+            🌍 Discover the World
+        </span>
+
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+            Explore Cultures.
+            <span class="gradient-text">Connect Through Languages.</span>
+        </h1>
+
+        <p class="text-slate-400 max-w-2xl mx-auto mt-6 leading-8">
+            Every language opens a new door to the world.
+            Discover traditions, taste local flavors, explore beautiful
+            places and experience the beauty of cultural diversity.
+        </p>
+
+        <a href="#countries"
+           class="inline-block mt-8 bg-purple-600 hover:bg-purple-500 px-7 py-3 rounded-full font-semibold transition">
+            Discover Cultures →
+        </a>
+    </section>
+
+    <!-- INTRODUCTION CARDS -->
+    <section class="grid md:grid-cols-3 gap-6 pb-16">
+
+        <div class="glass rounded-2xl p-7">
+            <div class="text-4xl mb-5">🗣️</div>
+            <h3 class="font-bold text-lg mb-3">Languages</h3>
+            <p class="text-slate-400 text-sm leading-7">
+                Discover how people communicate, express ideas and share stories around the world.
+            </p>
+        </div>
+
+        <div class="glass rounded-2xl p-7">
+            <div class="text-4xl mb-5">🎭</div>
+            <h3 class="font-bold text-lg mb-3">Traditions</h3>
+            <p class="text-slate-400 text-sm leading-7">
+                Explore customs, celebrations, art and traditions passed down through generations.
+            </p>
+        </div>
+
+        <div class="glass rounded-2xl p-7">
+            <div class="text-4xl mb-5">🍜</div>
+            <h3 class="font-bold text-lg mb-3">Food & Lifestyle</h3>
+            <p class="text-slate-400 text-sm leading-7">
+                Experience different cuisines, lifestyles and everyday cultural habits.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- COUNTRY EXPLORER -->
+    <section id="countries" class="py-16">
+
+        <div class="text-center mb-12">
+            <span class="text-purple-400 text-sm font-semibold tracking-widest">
+                CULTURAL JOURNEY
+            </span>
+
+            <h2 class="text-3xl md:text-4xl font-bold mt-3">
+                Explore Countries
+            </h2>
+
+            <p class="text-slate-400 mt-4">
+                Choose a country and discover its unique culture.
+            </p>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="max-w-xl mx-auto mb-12">
+            <input
+                type="search"
+                id="countrySearch"
+                placeholder="Search for a country..."
+                class="search-input w-full bg-[#1E293B] border border-white/10 rounded-full px-6 py-4 text-white placeholder-[#94A3B8] outline-none transition"
+            >
+        </div>
+
+        <!-- COUNTRY GRID -->
+        <div id="countryGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+
+            <!-- ITALY -->
+            <article class="country-card glass rounded-2xl overflow-hidden">
+                <div class="h-52 w-full overflow-hidden">
+                    <img
+                        src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=900"
+                        alt="Beautiful Italian coastal village"
+                        class="country-image"
+                    >
+                </div>
+
+                <div class="p-6">
+                    <div class="flex justify-between items-center gap-2">
+                        <h3 class="text-xl font-bold">Italy 🇮🇹</h3>
+                        <span class="text-xs text-sky-300">Europe</span>
+                    </div>
+
+                    <p class="text-slate-400 text-sm mt-3 leading-6">
+                        A country celebrated for its art, architecture, history and delicious cuisine.
+                    </p>
+
+                    <div class="text-sm text-slate-300 mt-5 space-y-2">
+                        <p>🍕 <strong>Food:</strong> Pizza & Pasta</p>
+                        <p>🏛️ <strong>Landmark:</strong> Colosseum</p>
+                        <p>🗣️ <strong>Language:</strong> Italian</p>
+                    </div>
+
+                    <button onclick="showCulture('italy')"
+                        class="mt-6 text-sky-400 font-semibold text-sm hover:text-purple-400">
+                        Explore Culture →
+                    </button>
+                </div>
+            </article>
+
+            <!-- FRANCE -->
+            <article class="country-card glass rounded-2xl overflow-hidden">
+                <div class="h-52 w-full overflow-hidden">
+                    <img
+                        src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=900"
+                        alt="Paris city in France"
+                        class="country-image"
+                    >
+                </div>
+
+                <div class="p-6">
+                    <div class="flex justify-between items-center gap-2">
+                        <h3 class="text-xl font-bold">France 🇫🇷</h3>
+                        <span class="text-xs text-sky-300">Europe</span>
+                    </div>
+
+                    <p class="text-slate-400 text-sm mt-3 leading-6">
+                        Famous for its literature, fashion, art, romantic cities and cuisine.
+                    </p>
+
+                    <div class="text-sm text-slate-300 mt-5 space-y-2">
+                        <p>🥐 <strong>Food:</strong> Croissant</p>
+                        <p>🗼 <strong>Landmark:</strong> Eiffel Tower</p>
+                        <p>🗣️ <strong>Language:</strong> French</p>
+                    </div>
+
+                    <button onclick="showCulture('france')"
+                        class="mt-6 text-sky-400 font-semibold text-sm hover:text-purple-400">
+                        Explore Culture →
+                    </button>
+                </div>
+            </article>
+
+            <!-- UNITED KINGDOM -->
+            <article class="country-card glass rounded-2xl overflow-hidden">
+                <div class="h-52 w-full overflow-hidden">
+                    <img
+                        src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=900"
+                        alt="London city in the United Kingdom"
+                        class="country-image"
+                    >
+                </div>
+
+                <div class="p-6">
+                    <div class="flex justify-between items-center gap-2">
+                        <h3 class="text-xl font-bold">United Kingdom 🇬🇧</h3>
+                        <span class="text-xs text-sky-300">Europe</span>
+                    </div>
+
+                    <p class="text-slate-400 text-sm mt-3 leading-6">
+                        Known for its literature, historic landmarks, music and diverse communities.
+                    </p>
+
+                    <div class="text-sm text-slate-300 mt-5 space-y-2">
+                        <p>🍟 <strong>Food:</strong> Fish and Chips</p>
+                        <p>🕰️ <strong>Landmark:</strong> Big Ben</p>
+                        <p>🗣️ <strong>Language:</strong> English</p>
+                    </div>
+
+                    <button onclick="showCulture('uk')"
+                        class="mt-6 text-sky-400 font-semibold text-sm hover:text-purple-400">
+                        Explore Culture →
+                    </button>
+                </div>
+            </article>
+
+                      <!-- AFGHANISTAN -->
+            <article class="country-card glass rounded-2xl overflow-hidden">
+         <div class="h-52 w-full overflow-hidden">
+        <img
+            src="https://thetravelhackinglife.com/wp-content/uploads/2022/08/Band-e-Amir-National-Park-Bamyan-Afghanistan-1024x686.jpg"
+            alt="Band-e Amir National Park, Bamyan, Afghanistan"
+            class="country-image"
+        >
+         </div>
+
+         <div class="p-6">
+        <div class="flex justify-between items-center gap-2">
+            <h3 class="text-xl font-bold">Afghanistan 🇦🇫</h3>
+            <span class="text-xs text-sky-300">Asia</span>
+        </div>
+
+        <p class="text-slate-400 text-sm mt-3 leading-6">
+            A land of rich poetry, ancient history, hospitality and diverse traditions.
+        </p>
+
+        <div class="text-sm text-slate-300 mt-5 space-y-2">
+            <p>🍚 <strong>Food:</strong> Kabuli Pulao</p>
+            <p>🕌 <strong>Landmark:</strong> Blue Mosque</p>
+            <p>🗣️ <strong>Languages:</strong> Dari & Pashto</p>
+        </div>
+
+        <button onclick="showCulture('afghanistan')"
+            class="mt-6 text-sky-400 font-semibold text-sm hover:text-purple-400">
+            Explore Culture →
+        </button>
+    </div>
+</article>
+            <!-- JAPAN -->
+            <article class="country-card glass rounded-2xl overflow-hidden">
+                <div class="h-52 w-full overflow-hidden">
+                    <img
+                        src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=900"
+                        alt="Traditional street in Japan"
+                        class="country-image"
+                    >
+                </div>
+
+                <div class="p-6">
+                    <div class="flex justify-between items-center gap-2">
+                        <h3 class="text-xl font-bold">Japan 🇯🇵</h3>
+                        <span class="text-xs text-sky-300">Asia</span>
+                    </div>
+
+                    <p class="text-slate-400 text-sm mt-3 leading-6">
+                        A fascinating blend of ancient traditions, technology, art and nature.
+                    </p>
+
+                    <div class="text-sm text-slate-300 mt-5 space-y-2">
+                        <p>🍣 <strong>Food:</strong> Sushi</p>
+                        <p>🗻 <strong>Landmark:</strong> Mount Fuji</p>
+                        <p>🗣️ <strong>Language:</strong> Japanese</p>
+                    </div>
+
+                    <button onclick="showCulture('japan')"
+                        class="mt-6 text-sky-400 font-semibold text-sm hover:text-purple-400">
+                        Explore Culture →
+                    </button>
+                </div>
+            </article>
+
+            <!-- SPAIN -->
+            <article class="country-card glass rounded-2xl overflow-hidden">
+                <div class="h-52 w-full overflow-hidden">
+                    <img
+                        src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=900"
+                        alt="Spanish architecture"
+                        class="country-image"
+                    >
+                </div>
+
+                <div class="p-6">
+                    <div class="flex justify-between items-center gap-2">
+                        <h3 class="text-xl font-bold">Spain 🇪🇸</h3>
+                        <span class="text-xs text-sky-300">Europe</span>
+                    </div>
+
+                    <p class="text-slate-400 text-sm mt-3 leading-6">
+                        Famous for flamenco, colorful festivals, architecture and regional traditions.
+                    </p>
+
+                    <div class="text-sm text-slate-300 mt-5 space-y-2">
+                        <p>🥘 <strong>Food:</strong> Paella</p>
+                        <p>🏛️ <strong>Landmark:</strong> Sagrada Família</p>
+                        <p>🗣️ <strong>Language:</strong> Spanish</p>
+                    </div>
+
+                    <button onclick="showCulture('spain')"
+                        class="mt-6 text-sky-400 font-semibold text-sm hover:text-purple-400">
+                        Explore Culture →
+                    </button>
+                </div>
+            </article>
+
+        </div>
+
+        <p id="noResults" class="hidden text-center text-slate-400 py-12">
+            No countries found. Try another search.
+        </p>
+
+    </section>
+
+    <!-- COUNTRY DETAILS -->
+    <section id="cultureDetails"
+        class="glass rounded-3xl p-8 md:p-12 mb-20 detail-panel">
+
+        <div class="flex justify-between items-center gap-4 mb-7">
+            <h2 id="detailTitle" class="text-3xl font-bold gradient-text"></h2>
+
+            <button onclick="closeCulture()"
+                class="text-slate-400 hover:text-white text-3xl">
+                ×
+            </button>
+        </div>
+
+        <p id="detailDescription"
+            class="text-slate-300 leading-8"></p>
+
+        <div class="grid sm:grid-cols-2 gap-5 mt-8">
+
+            <div class="bg-[#10172A] rounded-xl p-6">
+                <h3 class="font-bold text-sky-300 mb-3">🎉 Traditions</h3>
+                <p id="detailTraditions"
+                    class="text-sm text-slate-400 leading-7"></p>
+            </div>
+
+            <div class="bg-[#10172A] rounded-xl p-6">
+                <h3 class="font-bold text-sky-300 mb-3">🍽️ Cuisine</h3>
+                <p id="detailFood"
+                    class="text-sm text-slate-400 leading-7"></p>
+            </div>
+
+            <div class="bg-[#10172A] rounded-xl p-6">
+                <h3 class="font-bold text-sky-300 mb-3">🎨 Art & History</h3>
+                <p id="detailArt"
+                    class="text-sm text-slate-400 leading-7"></p>
+            </div>
+
+            <div class="bg-[#10172A] rounded-xl p-6">
+                <h3 class="font-bold text-sky-300 mb-3">💬 Useful Phrases</h3>
+                <p id="detailPhrase"
+                    class="text-sm text-slate-400 leading-7"></p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CULTURAL FACTS -->
+    <section class="pb-20">
+
+        <div class="text-center mb-10">
+            <span class="text-purple-400 text-sm font-semibold tracking-widest">
+                DID YOU KNOW?
+            </span>
+
+            <h2 class="text-3xl font-bold mt-3">
+                Culture Makes Us Unique
+            </h2>
+
+            <p class="text-slate-400 mt-4">
+                Discover the beauty of cultural diversity.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <div class="glass rounded-2xl p-7 text-center">
+                <div class="text-4xl mb-5">🌐</div>
+                <h3 class="font-bold mb-3">Many Languages</h3>
+                <p class="text-slate-400 text-sm leading-7">
+                    Thousands of languages are spoken around the world, each carrying unique stories.
+                </p>
+            </div>
+
+            <div class="glass rounded-2xl p-7 text-center">
+                <div class="text-4xl mb-5">🤝</div>
+                <h3 class="font-bold mb-3">Shared Humanity</h3>
+                <p class="text-slate-400 text-sm leading-7">
+                    Different customs can bring people together through curiosity and understanding.
+                </p>
+            </div>
+
+            <div class="glass rounded-2xl p-7 text-center">
+                <div class="text-4xl mb-5">📚</div>
+                <h3 class="font-bold mb-3">Learn Through Culture</h3>
+                <p class="text-slate-400 text-sm leading-7">
+                    Learning a language also means discovering the people and culture behind it.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="text-center glass rounded-3xl p-10 md:p-14 mb-20">
+
+        <h2 class="text-3xl md:text-4xl font-bold">
+            Every Language Is a New World.
+        </h2>
+
+        <p class="text-slate-400 mt-5 max-w-xl mx-auto leading-7">
+            Keep learning, stay curious and discover the world one word at a time.
+        </p>
+
+        <a href="../index.html"
+            class="inline-block mt-8 bg-purple-600 hover:bg-purple-500 px-7 py-3 rounded-full font-semibold transition">
+            Continue Learning →
+        </a>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/10 py-9 text-center">
+    <a href="../index.html" class="text-xl font-extrabold gradient-text">
+        LinguaSpace.
+    </a>
+
+    <p class="text-slate-500 text-sm mt-3">
+        Discover Languages. Explore Worlds.
+    </p>
+
+    <p class="text-slate-600 text-xs mt-3">
+        © 2026 LinguaSpace. All rights reserved.
+    </p>
+</footer>
+
+<!-- CULTURE DATA AND INTERACTIONS -->
+<script>
+const cultureData = {
+    italy: {
+        title: "Italy 🇮🇹",
+        description: "Italy has a rich cultural heritage shaped by the Roman Empire, Renaissance art, architecture, music and regional traditions.",
+        traditions: "Family gatherings, local festivals, traditional music and the celebration of regional heritage.",
+        food: "Pizza, pasta, risotto, gelato and many regional dishes.",
+        art: "Italy is home to the Renaissance and artists such as Leonardo da Vinci and Michelangelo.",
+        phrase: "Ciao! — Hello / Goodbye. Grazie! — Thank you."
+    },
+
+    france: {
+        title: "France 🇫🇷",
+        description: "France is known for its influence on art, literature, philosophy, fashion and food. Its regions have their own traditions and identities.",
+        traditions: "Café culture, Bastille Day celebrations, markets and regional festivals.",
+        food: "Croissants, baguettes, cheese, crêpes and regional cuisine.",
+        art: "France has inspired painters, writers, architects and filmmakers throughout history.",
+        phrase: "Bonjour! — Hello. Merci! — Thank you."
+    },
+
+    uk: {
+        title: "United Kingdom 🇬🇧",
+        description: "The United Kingdom includes England, Scotland, Wales and Northern Ireland, each with distinct cultural identities.",
+        traditions: "Afternoon tea, public celebrations, music festivals and local sporting traditions.",
+        food: "Fish and chips, Sunday roast, pies and regional dishes.",
+        art: "Shakespeare, British literature, theatre and influential music.",
+        phrase: "Hello! — Hello. Thank you! — Thank you."
+    },
+
+    afghanistan: {
+        title: "Afghanistan 🇦🇫",
+        description: "Afghanistan has a rich history shaped by many civilizations, languages, poetry, crafts and regional traditions.",
+        traditions: "Hospitality, family gatherings, traditional music, poetry and celebrations such as Nowruz in some communities.",
+        food: "Kabuli Pulao, mantu, bolani and ashak.",
+        art: "Persian and Pashto poetry, carpet weaving, miniature art and traditional crafts.",
+        phrase: "سلام — Salam — Hello. تشکر — Tashakur — Thank you."
+    },
+
+    japan: {
+        title: "Japan 🇯🇵",
+        description: "Japanese culture brings together ancient customs, contemporary design, technology, literature and a strong appreciation of nature.",
+        traditions: "Tea ceremonies, seasonal festivals, calligraphy and hanami, the appreciation of cherry blossoms.",
+        food: "Sushi, ramen, tempura and regional Japanese cuisine.",
+        art: "Traditional theatre, origami, calligraphy, anime and architecture.",
+        phrase: "こんにちは — Konnichiwa — Hello. ありがとう — Arigatou — Thank you."
+    },
+
+    spain: {
+        title: "Spain 🇪🇸",
+        description: "Spain has diverse regional cultures, celebrated for architecture, literature, music, dance and festivals.",
+        traditions: "Regional festivals, flamenco in Andalusia and local celebrations.",
+        food: "Paella, tortilla española, tapas and regional specialties.",
+        art: "Artists such as Picasso and Dalí, along with distinctive architecture.",
+        phrase: "¡Hola! — Hello. ¡Gracias! — Thank you."
+    }
+};
+
+function showCulture(country) {
+    const data = cultureData[country];
+
+    if (!data) return;
+
+    document.getElementById("detailTitle").textContent = data.title;
+    document.getElementById("detailDescription").textContent = data.description;
+    document.getElementById("detailTraditions").textContent = data.traditions;
+    document.getElementById("detailFood").textContent = data.food;
+    document.getElementById("detailArt").textContent = data.art;
+    document.getElementById("detailPhrase").textContent = data.phrase;
+
+    const panel = document.getElementById("cultureDetails");
+
+    panel.classList.add("open");
+
+    panel.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+function closeCulture() {
+    document.getElementById("cultureDetails").classList.remove("open");
+}
+</script>
+
+<script src="../js/main.js"></script>
+
+</body>
+</html>
