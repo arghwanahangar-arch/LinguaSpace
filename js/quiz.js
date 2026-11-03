@@ -38,6 +38,9 @@ let answered = false;
 
 function startQuiz(type) {
     currentQuiz = quizQuestions[type];
+
+    if (!currentQuiz) return;
+
     currentQuestion = 0;
     score = 0;
 
@@ -51,11 +54,8 @@ function showQuestion() {
 
     answered = false;
 
-    document.getElementById("question").textContent =
-        question.question;
-
+    document.getElementById("question").textContent = question.question;
     document.getElementById("feedback").textContent = "";
-
     document.getElementById("nextBtn").classList.add("hidden");
 
     const optionsBox = document.getElementById("options");
@@ -73,6 +73,7 @@ function showQuestion() {
         optionsBox.appendChild(button);
     });
 }
+
 function checkAnswer(selected) {
     if (answered) return;
 
@@ -88,12 +89,8 @@ function checkAnswer(selected) {
         document.getElementById("feedback").textContent =
             "❌ Incorrect! Correct answer: " + correct;
     }
-
-    document.getElementById("nextBtn").classList.remove("hidden");
-}
-
-function saveQuizResult() {
-   let stats = JSON.parse(localStorage.getItem("quizStats")) || {
+    function saveQuizResult() {
+    let stats = JSON.parse(localStorage.getItem("quizStats")) || {
         completed: 0,
         totalScore: 0,
         correctAnswers: 0,
@@ -111,7 +108,7 @@ function saveQuizResult() {
 }
 
 function updateDashboard() {
-    let stats = JSON.parse(localStorage.getItem("quizStats")) || {
+    const stats = JSON.parse(localStorage.getItem("quizStats")) || {
         completed: 0,
         totalScore: 0,
         correctAnswers: 0,
@@ -124,7 +121,7 @@ function updateDashboard() {
     document.getElementById("quizzesCompleted").textContent =
         stats.completed;
 
-    let accuracy = stats.totalQuestions > 0
+    const accuracy = stats.totalQuestions > 0
         ? Math.round((stats.correctAnswers / stats.totalQuestions) * 100)
         : 0;
 
@@ -132,7 +129,66 @@ function updateDashboard() {
         accuracy + "%";
 }
 
-updateDashboard();
+    document.getElementById("nextBtn").classList.remove("hidden");
+}
+
+document.getElementById("nextBtn").onclick = function () {
+    currentQuestion++;
+
+    if (currentQuestion < currentQuiz.length) {
+        showQuestion();
+    } else {
+        document.getElementById("question").textContent =
+            "🎉 Quiz Completed!";
+
+        document.getElementById("options").innerHTML = "";
+
+        document.getElementById("feedback").textContent =
+            "Your score: " + score + " / " + currentQuiz.length;
+
+        this.classList.add("hidden");
+    }
+};
+function saveQuizResult() {
+    let stats = JSON.parse(localStorage.getItem("quizStats")) || {
+        completed: 0,
+        totalScore: 0,
+        correctAnswers: 0,
+        totalQuestions: 0
+    };
+
+    stats.completed++;
+    stats.totalScore += score;
+    stats.correctAnswers += score;
+    stats.totalQuestions += currentQuiz.length;
+
+    localStorage.setItem("quizStats", JSON.stringify(stats));
+    updateDashboard();
+}
+function updateDashboard() {
+    const stats = JSON.parse(localStorage.getItem("quizStats")) || {
+        completed: 0,
+        totalScore: 0,
+        correctAnswers: 0,
+        totalQuestions: 0
+    };
+
+    document.getElementById("totalScore").textContent =
+        stats.totalScore;
+
+    document.getElementById("quizzesCompleted").textContent =
+        stats.completed;
+
+    const accuracy = stats.totalQuestions > 0
+        ? Math.round(
+            (stats.correctAnswers / stats.totalQuestions) * 100
+        )
+        : 0;
+
+    document.getElementById("accuracyRate").textContent =
+        accuracy + "%";
+}
+
 document.getElementById("nextBtn").onclick = function () {
     currentQuestion++;
 
@@ -152,3 +208,6 @@ document.getElementById("nextBtn").onclick = function () {
         this.classList.add("hidden");
     }
 };
+
+window.startQuiz = startQuiz;
+updateDashboard();
