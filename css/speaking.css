@@ -1,0 +1,31 @@
+/* PAGE BACKGROUND */
+html,
+body {
+    background-color: #10172f;
+    min-height: 100vh;
+}
+
+/* MAIN CONTENT */
+main {
+    background: transparent;
+}
+
+/* GLASS CARDS */
+main article {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 20px;
+}
+
+/* CARD TEXT */
+main article p {
+    color: #ded8ee;
+}
+
+/* CARD TITLES */
+main article h3 {
+    color: white;
+}

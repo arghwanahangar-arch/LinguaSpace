@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz & Progress | LinguaSpace</title>
+
+    <link rel="stylesheet" href="../css/output.css">
+    
+</head>
+
+<body class="bg-[#10172f] text-white min-h-screen">
+
+    <div class="min-h-screen">
+
+        <!-- Navbar -->
+<header class="w-full bg-[#10172A]">
+    <nav class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+
+        <!-- Logo -->
+        <a href="../index.html"
+           class="text-2xl font-bold tracking-tight text-white whitespace-nowrap">
+            ✦ Lingua<span class="text-purple-400">Space</span>
+        </a>
+
+        <!-- Navigation -->
+        <div class="flex items-center gap-7 text-sm font-medium text-slate-300 whitespace-nowrap">
+
+            <a href="../index.html" class="hover:text-purple-400 transition">⌂ Home</a>
+
+            <a href="vocabulary.html" class="hover:text-purple-400 transition">▤ Vocabulary</a>
+
+            <a href="speaking.html" class="hover:text-purple-400 transition">♫ Speaking</a>
+
+            <a href="quiz.html" class="hover:text-purple-400 transition">⚑ Quiz</a>
+
+            <a href="culture.html" class="hover:text-purple-400 transition">Culture</a>
+
+            <a href="inspiration.html" class="hover:text-purple-400 transition">♡ Inspiration</a>
+
+        </div>
+
+    </nav>
+</header>
+
+       
+        <main class="flex-1 p-6 md:p-10">
+
+           
+            <header class="flex justify-between items-center mb-10">
+
+                <div>
+                    <p class="text-purple-300 text-sm">WELCOME BACK!</p>
+                    <h2 class="text-2xl md:text-3xl font-bold mt-2">
+                        Your Learning Dashboard
+                    </h2>
+                </div>
+
+                <div class="bg-[#252044] rounded-full p-3 text-2xl">
+                    👩🏻‍🎓
+                </div>
+
+            </header>
+
+
+            <section class="bg-gradient-to-r from-purple-800 via-purple-600 to-indigo-600 rounded-3xl p-8 md:p-10 mb-8">
+
+                <p class="text-purple-100 font-semibold mb-3">
+                    ✦ YOUR LEARNING JOURNEY
+                </p>
+
+                <h1 class="text-3xl md:text-4xl font-extrabold mb-4">
+                    Keep Growing, Keep Shining!
+                </h1>
+
+                <p class="text-purple-100 max-w-xl mb-6">
+                    Every quiz you complete brings you one step closer
+                    to mastering English.
+                </p>
+
+                <a href="#quiz"
+                   class="inline-block bg-white text-purple-800 px-7 py-3 rounded-full font-bold hover:bg-purple-100">
+                    Start a Quiz →
+                </a>
+
+            </section>
+
+
+            
+            <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 mb-10">
+
+                <div class="bg-[#1c2545] p-6 rounded-2xl border border-purple-400/20">
+                    <div class="text-3xl mb-4">🏆</div>
+                    <p class="text-gray-300 text-sm">Total Score</p>
+                    <h2 id="totalScore" class="text-3xl font-bold mt-2">0</h2>
+                    <p class="text-green-400 text-sm mt-2">↑ 12% this week</p>
+                </div>
+                <div class="bg-[#1c2545] p-6 rounded-2xl border border-purple-400/20">
+                    <div class="text-3xl mb-4">📝</div>
+                    <p class="text-gray-300 text-sm">Quizzes Completed</p>
+                     <h2 id="quizzesCompleted" class="text-3xl font-bold mt-2">0</h2>
+                    <p class="text-purple-300 text-sm mt-2">Keep it up!</p>
+                </div>
+
+                <div class="bg-[#1c2545] p-6 rounded-2xl border border-purple-400/20">
+                    <div class="text-3xl mb-4">🎯</div>
+                    <p class="text-gray-300 text-sm">Accuracy Rate</p>
+                    <h2 id="accuracyRate" class="text-3xl font-bold mt-2">0%</h2>
+                    <p class="text-green-400 text-sm mt-2">Great progress!</p>
+                </div>
+
+                <div class="bg-[#1c2545] p-6 rounded-2xl border border-purple-400/20">
+                    <div class="text-3xl mb-4">🔥</div>
+                    <p class="text-gray-300 text-sm">Daily Streak</p>
+                    <h2 class="text-3xl font-bold mt-2">7 Days</h2>
+                    <p class="text-orange-300 text-sm mt-2">Amazing consistency!</p>
+                </div>
+
+            </section>
+
+
+            <section class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-10">
+
+                
+              <div class="flex items-end justify-between gap-3 h-48">
+
+    <div class="flex-1 flex flex-col items-center gap-3">
+        <div id="barMon" class="w-full bg-purple-500 rounded-t-lg"
+             style="height: 12px;"></div>
+        <span class="text-gray-400 text-xs">Mon</span>
+    </div>
+
+    <div class="flex-1 flex flex-col items-center gap-3">
+        <div id="barTue" class="w-full bg-purple-500 rounded-t-lg"
+             style="height: 12px;"></div>
+        <span class="text-gray-400 text-xs">Tue</span>
+    </div>
+
+    <div class="flex-1 flex flex-col items-center gap-3">
+        <div id="barWed" class="w-full bg-purple-500 rounded-t-lg"
+             style="height: 12px;"></div>
+        <span class="text-gray-400 text-xs">Wed</span>
+    </div>
+
+    <div class="flex-1 flex flex-col items-center gap-3">
+        <div id="barThu" class="w-full bg-purple-500 rounded-t-lg"
+             style="height: 12px;"></div>
+        <span class="text-gray-400 text-xs">Thu</span>
+    </div>
+
+    <div class="flex-1 flex flex-col items-center gap-3">
+        <div id="barFri" class="w-full bg-purple-500 rounded-t-lg"
+             style="height: 12px;"></div>
+        <span class="text-gray-400 text-xs">Fri</span>
+    </div>
+
+    <div class="flex-1 flex flex-col items-center gap-3">
+        <div id="barSat" class="w-full bg-purple-500 rounded-t-lg"
+             style="height: 12px;"></div>
+        <span class="text-gray-400 text-xs">Sat</span>
+    </div>
+
+    <div class="flex-1 flex flex-col items-center gap-3">
+        <div id="barSun" class="w-full bg-purple-500 rounded-t-lg"
+             style="height: 12px;"></div>
+        <span class="text-gray-400 text-xs">Sun</span>
+    </div>
+
+</div>
+
+                
+                <div class="bg-[#1c2545] rounded-2xl p-6 border border-purple-400/20">
+
+                    <h2 class="text-xl font-bold mb-2">
+                        Skill Progress
+                    </h2>
+                <p class="text-gray-400 text-sm mb-6">
+                        Your English learning skills
+                    </p>
+
+                    <div class="space-y-6">
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Vocabulary</span>
+                                <span class="text-purple-300">85%</span>
+                            </div>
+                            <div class="w-full bg-[#10172f] h-3 rounded-full">
+                                <div class="bg-purple-500 h-3 rounded-full w-[85%]"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Grammar</span>
+                                <span class="text-purple-300">70%</span>
+                            </div>
+                            <div class="w-full bg-[#10172f] h-3 rounded-full">
+                                <div class="bg-purple-500 h-3 rounded-full w-[70%]"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Speaking</span>
+                                <span class="text-purple-300">65%</span>
+                            </div>
+                            <div class="w-full bg-[#10172f] h-3 rounded-full">
+                                <div class="bg-purple-500 h-3 rounded-full w-[65%]"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Listening</span>
+                                <span class="text-purple-300">90%</span>
+                            </div>
+                            <div class="w-full bg-[#10172f] h-3 rounded-full">
+                                <div class="bg-purple-500 h-3 rounded-full w-[90%]"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+
+            
+            <section class="bg-[#1c2545] rounded-2xl p-7 border border-purple-400/20 mb-10">
+
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+
+                    <div>
+                        <h2 class="text-2xl font-bold mb-3">
+                            🔥 Your Daily Streak
+                        </h2>
+
+                        <p class="text-gray-300">
+                            Practice every day and build a strong learning habit!
+                        </p>
+                    </div>
+
+                    <div class="flex gap-3 text-center">
+
+                        <div class="bg-[#252044] p-3 rounded-xl">
+                            <p class="text-purple-300 text-xs">MON</p>
+                            <p class="text-xl mt-2">✓</p>
+                        </div>
+
+                        <div class="bg-[#252044] p-3 rounded-xl">
+                            <p class="text-purple-300 text-xs">TUE</p>
+                            <p class="text-xl mt-2">✓</p>
+                        </div>
+
+                        <div class="bg-[#252044] p-3 rounded-xl">
+                            <p class="text-purple-300 text-xs">WED</p>
+                            <p class="text-xl mt-2">✓</p>
+                        </div>
+
+                        <div class="bg-[#252044] p-3 rounded-xl">
+                            <p class="text-purple-300 text-xs">THU</p>
+                            <p class="text-xl mt-2">✓</p>
+                        </div>
+
+                        <div class="bg-[#252044] p-3 rounded-xl">
+                            <p class="text-purple-300 text-xs">FRI</p>
+                            <p class="text-xl mt-2">✓</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+           
+            <section id="quiz" class="mb-10">
+
+                <h2 class="text-2xl font-bold mb-2">
+                    Test Your Knowledge
+                </h2>
+
+                <p class="text-gray-400 mb-6">
+                    Choose a quiz and challenge yourself.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+                    <div class="bg-[#1c2545] p-6 rounded-2xl border border-purple-400/20">
+                        <div class="text-4xl mb-4">📚</div>
+                        <h3 class="text-xl font-bold mb-2">Vocabulary Quiz</h3>
+                        <p class="text-gray-400 text-sm mb-5">
+                            Test your English word knowledge.
+                        </p>
+                           <button onclick="startQuiz('vocabulary')"
+    class="bg-purple-700 px-5 py-2 rounded-lg hover:bg-purple-600">
+    Start Quiz →
+</button>
+                    </div>
+
+                    <div class="bg-[#1c2545] p-6 rounded-2xl border border-purple-400/20">
+                        <div class="text-4xl mb-4">✍️</div>
+                        <h3 class="text-xl font-bold mb-2">Grammar Quiz</h3>
+                        <p class="text-gray-400 text-sm mb-5">
+                            Improve your grammar skills.
+                        </p>
+                        <button onclick="startQuiz('grammar')"
+ class="bg-purple-700 px-5 py-2 rounded-lg hover:bg-purple-600">
+ Start Quiz →
+</button>
+                    </div>
+
+                    <div class="bg-[#1c2545] p-6 rounded-2xl border border-purple-400/20">
+                        <div class="text-4xl mb-4">🌟</div>
+                        <h3 class="text-xl font-bold mb-2">Mixed Quiz</h3>
+                        <p class="text-gray-400 text-sm mb-5">
+                            Challenge yourself with different questions.
+                        </p>
+                       <button onclick="startQuiz('mixed')"
+ class="bg-purple-700 px-5 py-2 rounded-lg hover:bg-purple-600">
+ Start Quiz →
+</button> 
+                    </div>
+
+                </div>
+</div>
+
+             <div id="quizBox" class="hidden bg-[#1c2545] p-6 rounded-2xl mt-8">
+
+    <h2 id="question" class="text-xl font-bold mb-6"></h2>
+
+    <div id="options" class="grid gap-3"></div>
+
+    <p id="feedback" class="mt-4 text-sm"></p>
+
+    <button id="nextBtn"
+        class="hidden bg-purple-700 px-6 py-3 rounded-lg mt-5">
+        Next Question →
+    </button>
+
+</div>
+            </section>
+            <footer class="text-center text-gray-400 text-sm py-6 border-t border-purple-400/20">
+                © 2026 LinguaSpace. Keep Learning, Keep Growing.
+            </footer>
+
+        </main>
+
+    </div>
+<script src="../js/quiz.js"></script>
+
+</body>
+</html>     

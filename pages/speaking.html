@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaking | LinguaSpace</title>
+
+    <link rel="stylesheet" href="../css/output.css">
+    <link rel="stylesheet" href="../css/speaking.css">
+</head>
+
+<body class="bg-[#10172f]">
+
+         <!-- Navbar -->
+<header class="w-full bg-[#10172A]">
+    <nav class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+
+        <!-- Logo -->
+        <a href="../index.html"
+           class="text-2xl font-bold tracking-tight text-white whitespace-nowrap">
+            ✦ Lingua<span class="text-purple-400">Space</span>
+        </a>
+
+        <!-- Navigation -->
+        <div class="flex items-center gap-7 text-sm font-medium text-slate-300 whitespace-nowrap">
+
+            <a href="../index.html" class="hover:text-purple-400 transition">⌂ Home</a>
+
+            <a href="vocabulary.html" class="hover:text-purple-400 transition">▤ Vocabulary</a>
+
+            <a href="speaking.html" class="hover:text-purple-400 transition">♫ Speaking</a>
+
+            <a href="quiz.html" class="hover:text-purple-400 transition">⚑ Quiz</a>
+
+            <a href="culture.html" class="hover:text-purple-400 transition">Culture</a>
+
+            <a href="inspiration.html" class="hover:text-purple-400 transition">♡ Inspiration</a>
+
+        </div>
+
+    </nav>
+</header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-[#10172f] text-white text-center px-6 mt-8 pt-16 pb-20">
+
+        <div class="absolute top-8 left-10 text-3xl text-purple-200 opacity-60">✦ · ✧</div>
+        <div class="absolute top-8 right-12 text-4xl opacity-70">🎧</div>
+        <div class="absolute bottom-8 left-20 text-3xl text-purple-200 opacity-60">♫</div>
+        <div class="absolute bottom-8 right-16 text-4xl opacity-60">✨</div>
+
+        <div class="relative z-10 max-w-3xl mx-auto">
+
+            <p class="text-purple-200 tracking-[0.3em] text-sm font-semibold mb-5">
+                ✦ SPEAKING STUDIO ✨
+            </p>
+
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6">
+                Speak with <span class="text-purple-200">Confidence</span>
+            </h1>
+
+            <p class="text-purple-100 text-base md:text-lg max-w-2xl mx-auto">
+                Practice English conversations, improve your speaking skills and express yourself with confidence.
+            </p>
+
+            <button
+                onclick="startPractice('Daily Conversation')"
+                class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xl font-bold px-12 py-5 rounded-full shadow-xl shadow-purple-500/30 transition-all duration-300 hover:scale-105 active:scale-95">
+                Start Speaking →
+            </button>
+
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-14">
+
+        <p class="text-purple-200 tracking-widest text-sm font-semibold mb-5 mt-10 text-center w-full">
+            ✦ PRACTICE EVERY DAY
+        </p>
+
+        <h2 class="text-xl font-extrabold text-white text-center w-full mb-5">
+            Choose Your Conversation
+        </h2>
+
+        <!-- Level Filters -->
+        <div class="flex flex-wrap justify-center gap-6 mb-10 mt-4">
+
+            <button data-level="all" onclick="filterSpeakingTopics('all')"
+                class="level-btn bg-purple-700 text-white px-7 py-3 rounded-full font-semibold shadow-lg transition hover:scale-105">
+                All Topics
+            </button>
+
+            <button data-level="beginner" onclick="filterSpeakingTopics('beginner')"
+                class="level-btn bg-white text-purple-700 border border-purple-200 px-7 py-3 rounded-full font-semibold shadow-md transition hover:bg-purple-100 hover:scale-105">
+                Beginner
+            </button>
+
+            <button data-level="intermediate" onclick="filterSpeakingTopics('intermediate')"
+                class="level-btn bg-white text-purple-700 border border-purple-200 px-7 py-3 rounded-full font-semibold shadow-md transition hover:bg-purple-100 hover:scale-105">
+                Intermediate
+            </button>
+
+            <button data-level="advanced" onclick="filterSpeakingTopics('advanced')"
+                class="level-btn bg-white text-purple-700 border border-purple-200 px-7 py-3 rounded-full font-semibold shadow-md transition hover:bg-purple-100 hover:scale-105">
+                Advanced
+            </button>
+
+        </div>
+
+        <!-- Conversation Cards -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+
+            <!-- Daily Conversation -->
+            <article class="topic-card beginner bg-white rounded-2xl p-7 shadow-md border border-purple-100 hover:-translate-y-2 hover:shadow-xl transition duration-300">
+
+                <div class="flex justify-between items-center mb-5">
+                    <span class="text-5xl">👋</span>
+                    <span class="text-xs font-bold bg-green-100 text-green-700 px-3 py-2 rounded-full">● Beginner</span>
+                </div>
+
+                <h3 class="text-xl font-bold mb-3">Daily Conversation</h3>
+
+                <p class="text-gray-500 text-sm leading-6 mb-6">
+                    Learn how to talk about your daily life and everyday activities.
+                </p>
+
+                <button onclick="startPractice('Daily Conversation')"
+                    class="w-full bg-purple-700 hover:bg-purple-800 text-white py-3 rounded-xl font-semibold transition">
+                    Start Practice →
+                </button>
+
+            </article>
+
+            <!-- Travel & Tourism -->
+            <article class="topic-card beginner bg-white rounded-2xl p-7 shadow-md border border-purple-100 hover:-translate-y-2 hover:shadow-xl transition duration-300">
+
+                <div class="flex justify-between items-center mb-5">
+                    <span class="text-5xl">✈️</span>
+                    <span class="text-xs font-bold bg-green-100 text-green-700 px-3 py-2 rounded-full">● Beginner</span>
+                </div>
+
+                <h3 class="text-xl font-bold mb-3">Travel & Tourism</h3>
+
+                <p class="text-gray-500 text-sm leading-6 mb-6">
+                    Practice useful English conversations for travelling.
+                </p>
+
+                <button onclick="startPractice('Travel & Tourism')"
+                    class="w-full bg-purple-700 hover:bg-purple-800 text-white py-3 rounded-xl font-semibold transition">
+                    Start Practice →
+                </button>
+
+            </article>
+
+            <!-- Education -->
+            <article class="topic-card intermediate bg-white rounded-2xl p-7 shadow-md border border-purple-100 hover:-translate-y-2 hover:shadow-xl transition duration-300">
+
+                <div class="flex justify-between items-center mb-5">
+                    <span class="text-5xl">🎓</span>
+                    <span class="text-xs font-bold bg-orange-100 text-orange-700 px-3 py-2 rounded-full">● Intermediate</span>
+                </div>
+
+                <h3 class="text-xl font-bold mb-3">Education</h3>
+
+                <p class="text-gray-500 text-sm leading-6 mb-6">
+                    Talk about education, school and your future goals.
+                </p>
+
+                <button onclick="startPractice('Education')"
+                    class="w-full bg-purple-700 hover:bg-purple-800 text-white py-3 rounded-xl font-semibold transition">
+                    Start Practice →
+                </button>
+
+            </article>
+
+            <!-- Job Interview -->
+            <article class="topic-card intermediate bg-white rounded-2xl p-7 shadow-md border border-purple-100 hover:-translate-y-2 hover:shadow-xl transition duration-300">
+
+                <div class="flex justify-between items-center mb-5">
+                    <span class="text-5xl">💼</span>
+                    <span class="text-xs font-bold bg-orange-100 text-orange-700 px-3 py-2 rounded-full">● Intermediate</span>
+                </div>
+
+                <h3 class="text-xl font-bold mb-3">Job Interview</h3>
+
+                <p class="text-gray-500 text-sm leading-6 mb-6">
+                    Prepare yourself for interviews and professional conversations.
+                </p>
+
+                <button onclick="startPractice('Job Interview')"
+                    class="w-full bg-purple-700 hover:bg-purple-800 text-white py-3 rounded-xl font-semibold transition">
+                    Start Practice →
+                </button>
+
+            </article>
+
+            <!-- About Yourself -->
+            <article class="topic-card beginner bg-white rounded-2xl p-7 shadow-md border border-purple-100 hover:-translate-y-2 hover:shadow-xl transition duration-300">
+
+                <div class="flex justify-between items-center mb-5">
+                    <span class="text-5xl">🌸</span>
+                    <span class="text-xs font-bold bg-green-100 text-green-700 px-3 py-2 rounded-full">● Beginner</span>
+                </div>
+
+                <h3 class="text-xl font-bold mb-3">About Yourself</h3>
+
+                <p class="text-gray-500 text-sm leading-6 mb-6">
+                    Learn to introduce yourself and describe your personality.
+                </p>
+
+                <button onclick="startPractice('About Yourself')"
+                    class="w-full bg-purple-700 hover:bg-purple-800 text-white py-3 rounded-xl font-semibold transition">
+                    Start Practice →
+                </button>
+
+            </article>
+
+            <!-- Making Friends -->
+            <article class="topic-card advanced bg-white rounded-2xl p-7 shadow-md border border-purple-100 hover:-translate-y-2 hover:shadow-xl transition duration-300">
+
+                <div class="flex justify-between items-center mb-5">
+                    <span class="text-5xl">🤝</span>
+                    <span class="text-xs font-bold bg-purple-100 text-purple-700 px-3 py-2 rounded-full">● Advanced</span>
+                </div>
+
+                <h3 class="text-xl font-bold mb-3">Making Friends</h3>
+
+                <p class="text-gray-500 text-sm leading-6 mb-6">
+                    Improve your communication and social conversation skills.
+                </p>
+
+                <button onclick="startPractice('Making Friends')"
+                    class="w-full bg-purple-700 hover:bg-purple-800 text-white py-3 rounded-xl font-semibold transition">
+                    Start Practice →
+                </button>
+
+            </article>
+
+        </section>
+
+        <!-- Speaking Practice -->
+        <section id="practice" class="mt-20 rounded-3xl bg-gradient-to-br from-[#35145f] via-[#7135b8] to-[#9c60dc] p-8 md:p-12 text-center text-white shadow-xl">
+
+            <div class="text-5xl mb-5">🎤</div>
+
+            <p class="text-purple-200 tracking-widest text-sm font-semibold mb-3">
+                YOUR SPEAKING TIME
+            </p>
+
+            <h2 id="practiceTitle" class="text-3xl font-extrabold mb-5">
+                Ready to Speak?
+            </h2>
+
+            <p id="question" class="text-purple-100 text-lg mb-8">
+                Choose a topic above to get your first question.
+            </p>
+
+            <textarea id="answer"
+                class="w-full max-w-2xl h-36 bg-white/10 border border-purple-200/40 rounded-2xl p-5 text-white placeholder-purple-200 outline-none focus:border-white"
+                placeholder="Write your English answer here..."></textarea>
+
+            <div>
+                <button onclick="nextQuestion()"
+                    class="mt-6 bg-white text-purple-800 px-10 py-3 rounded-full font-bold hover:bg-purple-100 transition">
+                    Next Question →
+                </button>
+            </div>
+
+            <p id="feedback" class="mt-5 text-purple-100"></p>
+
+        </section>
+
+        <!-- Motivation Section -->
+        <section class="mt-14 bg-gradient-to-r from-purple-100 to-purple-200 rounded-2xl p-7 md:p-9 flex flex-col md:flex-row items-center justify-between gap-6">
+
+            <div class="flex items-center gap-5">
+
+                <div class="text-5xl">🏆</div>
+
+                <div>
+                    <h2 class="text-xl font-extrabold text-purple-950">
+                        Every Conversation Makes You Better!
+                    </h2>
+
+                    <p class="text-purple-800 mt-2">
+                        Practice today and speak confidently tomorrow.
+                    </p>
+                </div>
+
+            </div>
+
+            <a href="quiz.html"
+                class="bg-purple-700 hover:bg-purple-800 text-white px-7 py-3 rounded-xl font-semibold transition">
+                View Your Progress →
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#17132c] text-purple-200 text-center py-7">
+        ✨ Your voice is your power. — LinguaSpace
+    </footer>
+
+    <script src="../js/speaking.js"></script>
+
+</body>
+</html>

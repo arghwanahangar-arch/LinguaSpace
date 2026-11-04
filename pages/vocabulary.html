@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary | LinguaSpace</title>
+    <link rel="stylesheet" href="../css/output.css">
+    <link rel="stylesheet" href="../css/vocabulary.css">
+</head>
+
+<body>
+
+    
+      <!-- Navbar -->
+<header class="w-full bg-[#10172A]">
+    <nav class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+
+        <!-- Logo -->
+        <a href="../index.html"
+           class="text-2xl font-bold tracking-tight text-white whitespace-nowrap">
+            ✦ Lingua<span class="text-purple-400">Space</span>
+        </a>
+
+        <!-- Navigation -->
+        <div class="flex items-center gap-7 text-sm font-medium text-slate-300 whitespace-nowrap">
+
+            <a href="../index.html" class="hover:text-purple-400 transition">⌂ Home</a>
+
+            <a href="vocabulary.html" class="hover:text-purple-400 transition">▤ Vocabulary</a>
+
+            <a href="speaking.html" class="hover:text-purple-400 transition">♫ Speaking</a>
+
+            <a href="quiz.html" class="hover:text-purple-400 transition">⚑ Quiz</a>
+
+            <a href="culture.html" class="hover:text-purple-400 transition">Culture</a>
+
+            <a href="inspiration.html" class="hover:text-purple-400 transition">♡ Inspiration</a>
+
+        </div>
+
+    </nav>
+</header>
+
+    <section class="hero">
+
+        <div class="stars">✦　 ·　 ✧　　✦　 ·　 ✧　✦</div>
+
+        <div class="book-decoration">📖</div>
+        <div class="planet-decoration">🪐</div>
+
+        <div class="hero-content">
+            <p class="eyebrow">✦ WORD EXPLORER ✨</p>
+
+            <h1>Discover <span>New Words</span></h1>
+
+            <p class="subtitle">
+                Learn new words, improve your language and grow every day.
+            </p>
+
+            <div class="search-box">
+                <span>⌕</span>
+                <input id="searchInput" type="text"
+                    placeholder="Search for a word...">
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+
+    
+        <div class="filters">
+            <button class="filter-btn selected" data-level="all">▦ All Words</button>
+            <button class="filter-btn" data-level="beginner">🌱 Beginner</button>
+            <button class="filter-btn" data-level="intermediate">▥ Intermediate</button>
+            <button class="filter-btn" data-level="advanced">🚀 Advanced</button>
+        </div>
+
+        <section class="word-grid" id="wordContainer">
+
+            <article class="word-card beginner">
+                <div class="card-top">
+                    <span class="level green">● Beginner</span>
+                    <button class="favorite" aria-label="Favorite">☆</button>
+                </div>
+
+                <h2>Beautiful</h2>
+
+                <div class="pronunciation">
+                    <span>/ˈbjuːtɪfəl/</span>
+                    <button class="audio-btn" data-word="Beautiful">🔊</button>
+                </div>
+
+                <p class="translation green-text">زیبا</p>
+                <hr>
+
+                <p class="example">
+                    She has a <strong>beautiful</strong> smile.
+                </p>
+
+                <div class="card-actions">
+                    <button class="save-btn">♧ Save</button>
+                    <button class="add-btn">＋ Add to List</button>
+                </div>
+            </article>
+
+            <article class="word-card intermediate">
+                <div class="card-top">
+                    <span class="level orange">● Intermediate</span>
+                    <button class="favorite" aria-label="Favorite">☆</button>
+                </div>
+
+                <h2>Confidence</h2>
+
+                <div class="pronunciation">
+                    <span>/ˈkɒnfɪdəns/</span>
+                    <button class="audio-btn" data-word="Confidence">🔊</button>
+                </div>
+
+                <p class="translation orange-text">اعتماد به نفس</p>
+                <hr>
+
+                <p class="example">
+                    Believe in yourself and your <strong>confidence</strong>.
+                </p>
+
+                <div class="card-actions">
+                    <button class="save-btn">♧ Save</button>
+                    <button class="add-btn">＋ Add to List</button>
+                </div>
+            </article>
+
+            <article class="word-card advanced">
+                <div class="card-top">
+                    <span class="level purple">● Advanced </span>
+                    <button class="favorite" aria-label="Favorite">☆</button>
+                </div>
+
+                <h2>Dream</h2>
+
+                <div class="pronunciation">
+                    <span>/driːm/</span>
+                    <button class="audio-btn" data-word="Dream">🔊</button>
+                </div>
+
+                <p class="translation green-text">رویا، آرزو</p>
+                <hr>
+
+                <p class="example">
+                    Never stop following your <strong>dreams</strong>.
+                </p>
+
+                <div class="card-actions">
+                    <button class="save-btn">♧ Save</button>
+                    <button class="add-btn">＋ Add to List</button>
+                </div>
+            </article>
+
+        </section>
+       
+
+        <p id="emptyMessage" class="empty-message hidden">
+            No words found. Try another search.
+        </p>
+
+        
+        <section class="bottom-banner">
+            <div class="trophy">🏆</div>
+
+            <div class="banner-text">
+                <h2>Keep learning, keep growing!</h2>
+                <p>Every new word brings you closer to your goals.</p>
+            </div>
+
+            <a href="quiz.html" class="progress-link">
+                ▥ View Your Progress
+            </a>
+        </section>
+
+    </main>
+
+    <footer>
+        ✨ A new word is a new world. — LinguaSpace
+    </footer>
+
+    <script src="../js/vocabulary.js"></script>
+</body>
+</html>
